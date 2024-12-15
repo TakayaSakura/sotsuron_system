@@ -2,7 +2,7 @@ const startTime = Date.now();
 const { parse, traverse } = require("regexp-tree");
 // const { Disjunction } = require("./Disjunction");
 
-const regex = /1*|1*/; // 正規表現を入力
+const regex = /(1*)*/; // 正規表現を入力
 
 function removeLastDigit(regexStr) {
   const lastChar = regexStr[regexStr.length - 1];
@@ -79,8 +79,8 @@ if (result) {
     },
   });
 
-  // console.log(JSON.stringify(ast, null, 2)); //AST全体確認
-  console.log(JSON.stringify(disjunctionNode, null, 2)); //分岐ノードのみ確認
+  console.log(JSON.stringify(ast, null, 2)); //AST全体確認
+  // console.log(JSON.stringify(disjunctionNode, null, 2)); //分岐ノードのみ確認
   // console.log(JSON.stringify(RepetitionNode, null, 2)); //Repetitionノードのみ確認（RepetitionNode2でネスト内側のRepetitionノード確認）
 
   // console.log(AutomatonArray);
@@ -91,7 +91,7 @@ if (result) {
   ).join(", ");
   let FinalArray = "[" + ArrangedArray + "]";
 
-  // console.log(FinalArray);
+  console.log(FinalArray);
 
   //Pythonに送信する部分
   fetch("http://localhost:5000/receive_data", {
